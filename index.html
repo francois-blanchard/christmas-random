@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chacun son tour pour noël</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body ng-app="christmas">
+    <header>
+      <nav></nav>
+    </header>
+
+    <div class="content">
+      <div ng-controller="UsersController" class="users">
+        <ul>
+          <li ng-repeat="user in users">{{user.username}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+
+    <!--[if IE]><script src="https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js"></script><![endif]-->
+    <script src ="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src ="bower_components/angular/angular.min.js"></script>
+    <script src ="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src ="script/app.js"></script>
+  </body>
+</html>
