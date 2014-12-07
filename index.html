@@ -3,30 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Chacun son tour pour noël</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css">
+    <meta name="viewport" content="width=device-width">
   </head>
 
   <body ng-app="christmas">
-    <header>
-      <nav></nav>
-    </header>
 
-    <div class="content">
-      <div ng-controller="UsersController" class="users">
+    <div ng-controller="UsersController" class="content">
+
+      <form ng-submit="addUser()" class="new-user">
+        <input type="text" placeholder="Ecrir un prénom" ng-model="newUser.username">
+        <input type="submit" class='button' value="Ajouter">
+      </form>
+
+      <p class="name-picked">Au tour de : {{user_picked.username}}</p>
+      <div ng-switch on="pick_status">
+        <div ng-switch-when="pick">
+            <button ng-click="pick_random_user()" class="button btn-pick">Tirage au sort</button>
+        </div>
+        <div ng-switch-default>
+            Fini
+        </div>
+      </div>
+
+      <div class="list">
+        <h3>LISTE DES NOMS</h3>
         <ul>
-          <li ng-repeat="user in users">{{user.username}}</li>
+          <li ng-repeat="user in users">{{user.username}} ({{user.picked}})</li>
         </ul>
       </div>
-    </div>
 
-    <footer>
-    </footer>
+    </div>
 
     <!--[if IE]><script src="https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js"></script><![endif]-->
     <script src ="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src ="bower_components/lodash/dist/lodash.compat.min.js"></script>
     <script src ="bower_components/angular/angular.min.js"></script>
-    <script src ="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src ="script/app.js"></script>
   </body>
 </html>
