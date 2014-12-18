@@ -11,8 +11,11 @@
 
     <div ng-controller="UsersController" class="content">
 
-      <form ng-submit="addUser()" class="new-user">
-        <input type="text" placeholder="Ecrir un prénom" ng-model="newUser.username">
+      <!-- (userForm.$error.required && userForm.username.$dirty) || (error_username && userForm.username.$pristine) -->
+
+      <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.username.$pristine)}">
+        <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.username" name='username' autocomplete='off' required>
+         <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou pusieur prénoms</span>
         <input type="submit" class='button' value="Ajouter">
       </form>
 

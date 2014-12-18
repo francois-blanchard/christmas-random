@@ -23,12 +23,19 @@ app.controller('UsersController', function($scope, User){
   $scope.users = User.all();
   $scope.newUser = {};
   $scope.pick_status = "pick";
+  $scope.error_username = false;
 
   $scope.addUser = function(){
-    $scope.newUser.picked = false;
-    $scope.users.push($scope.newUser);
-    $scope.newUser = {};
-    $scope.pick_status = "pick";
+    if ($scope.userForm.$valid) {
+      $scope.newUser.picked = false;
+      $scope.users.push($scope.newUser);
+      $scope.newUser = {};
+      $scope.pick_status = "pick";
+      $scope.error_username = false;
+    }else{
+      $scope.error_username = true;
+    }
+    $scope.userForm.$setPristine();
   };
 
   $scope.pick_random_user = function(){
