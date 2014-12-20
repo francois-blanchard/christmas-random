@@ -15,7 +15,7 @@
 
       <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.username.$pristine)}">
         <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.username" name='username' autocomplete='off' required>
-         <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou pusieur prénoms</span>
+         <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
         <input type="submit" class='button' value="Ajouter">
       </form>
 
