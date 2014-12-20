@@ -8,35 +8,60 @@
   </head>
 
   <body ng-app="christmas">
+    
+    <header>
+      <h1>Joyeux Noël</h1>
+    </header>
 
     <div ng-controller="UsersController" class="content">
-
-      <!-- (userForm.$error.required && userForm.username.$dirty) || (error_username && userForm.username.$pristine) -->
-
-      <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.username.$pristine)}">
-        <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.username" name='username' autocomplete='off' required>
-         <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
-        <input type="submit" class='button' value="Ajouter">
-      </form>
-
-      <p class="name-picked">Au tour de : {{user_picked.username}}</p>
-      <div ng-switch on="pick_status">
-        <div ng-switch-when="pick">
-            <button ng-click="pick_random_user()" class="button btn-pick">Tirage au sort</button>
+    
+    <!-- LEFT -->
+      <section class="leftSide">
+        <!-- Ajouter un nom -->
+        <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.username.$pristine)}">
+          <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.username" name='username' autocomplete='off' required>
+          <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
+          <input type="submit" class='button' value="Ajouter">
+        </form>
+        
+        <!--Liste des participants-->
+        <div class="list">
+          <h3>LISTE DES NOMS</h3>
+          <ul>
+            <li ng-repeat="user in users">{{user.username}} ({{user.picked}})</li>
+          </ul>
         </div>
-        <div ng-switch-default>
-            Fini
-        </div>
-      </div>
+      </section><!--
+    
+    CENTER : Call to action 
 
-      <div class="list">
-        <h3>LISTE DES NOMS</h3>
-        <ul>
-          <li ng-repeat="user in users">{{user.username}} ({{user.picked}})</li>
-        </ul>
-      </div>
+    --><section class="centerSide">
+        <div ng-switch on="pick_status">
+          <div ng-switch-when="pick">
+              <button ng-click="pick_random_user()" class="button btn-pick">A qui l'tour ?</button>
+          </div>
+          <div ng-switch-default>
+              Fini
+          </div>
+        </div>
+        
+        <img src="../.." alt="A qui l'tour ?" />
+      </section><!-- 
+    
+    RIGHT 
+    
+    --><section class="rightSide">
+        <p>Tu peux ouvrir tes cadeaux ... </p>
+        <p class="name">{{user_picked.username}}</p>
+      </section>
 
     </div>
+
+    <footer>
+        <p>Made by François & his future wife. 
+          <span>He is very proud of her and they love each other. Don't forget their cat, JS, he was their inspiration. He was very hurted by the creator each night ... Don't tell to PETA !!</span>
+        </p>
+    </footer>
 
     <!--[if IE]><script src="https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js"></script><![endif]-->
     <script src ="bower_components/jquery/dist/jquery.min.js"></script>
