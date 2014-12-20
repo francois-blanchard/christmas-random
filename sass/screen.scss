@@ -1,0 +1,100 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+$main_padding : 10px;
+
+html{background-color: #262322;}
+
+:focus {
+    outline: 0;
+}
+
+// BOXSIZING
+.content *{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+// BTN
+.button{
+  background-color: #9AA0A8;
+  border: 3px solid #9AA0A8;
+  font-size: 18px;
+  text-align: center;
+}
+
+// FORM
+.new-user{
+  padding: $main_padding;
+  input[type='text']{
+    width: 100%;
+    background: #454545;
+    border: 3px solid #9AA0A8;
+    height: 40px;
+    padding: 10px 105px 10px 10px;
+    font-size: 18px;
+    color: #FFF;
+  }
+  input[type='submit']{
+    position: absolute;
+    top: 0;
+    right: 0;
+    top: $main_padding;
+    right: $main_padding;
+    height: 40px;
+    width: 100px;
+  }
+  &.error{
+    input{
+      border-color: red;
+    }
+  }
+  span.error{
+    background-color: red;
+    color: #FFF;
+    width: 100%;
+    display: block;
+    padding: 10px;
+  }
+}
+
+// Listing
+.list{
+  padding: $main_padding;
+  h3{
+    background-color:#46A40F;
+    color: #FFF;
+    padding: 15px;
+    text-align: center;
+  }
+  ul{
+    border: 3px solid #9AA0A8;
+  }
+  li{
+    padding: 10px;
+    background-color: #454545;
+    color: #9AA0A8;
+    border-bottom: 1px solid #9AA0A8;
+    &:last-child{
+      border: none;
+    }
+  }
+}
+
+// Random
+.btn-pick{
+  margin: 0 auto;
+  display: block;
+}
+
+.name-picked{
+  background-color: #46A40F;
+  color: #FFF;
+  margin: $main_padding;
+  padding: $main_padding;
+}
