@@ -11,15 +11,15 @@
 
     <div ng-controller="UsersController" class="content">
 
-      <!-- (userForm.$error.required && userForm.username.$dirty) || (error_username && userForm.username.$pristine) -->
+      <!-- (userForm.$error.required && userForm.userName.$dirty) || (error_username && userForm.userName.$pristine) -->
 
-      <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.username.$pristine)}">
-        <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.username" name='username' autocomplete='off' required>
-         <span class="error" ng-show="(error_username && userForm.username.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
+      <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.userName.$pristine)}">
+        <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.userName" name='userName' autocomplete='off' required>
+         <span class="error" ng-show="(error_username && userForm.userName.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
         <input type="submit" class='button' value="Ajouter">
       </form>
 
-      <p class="name-picked">Au tour de : {{user_picked.username}}</p>
+      <p class="name-picked">Au tour de : {{user_picked.userName}}</p>
       <div ng-switch on="pick_status">
         <div ng-switch-when="pick">
             <button ng-click="pick_random_user()" class="button btn-pick">Tirage au sort</button>
@@ -32,7 +32,7 @@
       <div class="list">
         <h3>LISTE DES NOMS</h3>
         <ul>
-          <li ng-repeat="user in users">{{user.username}} ({{user.picked}})</li>
+          <li ng-repeat="user in users">{{user.userName}} ({{user.picked}})</li>
         </ul>
       </div>
 
@@ -43,5 +43,14 @@
     <script src ="bower_components/lodash/dist/lodash.compat.min.js"></script>
     <script src ="bower_components/angular/angular.min.js"></script>
     <script src ="script/app.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57895060-1', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>
