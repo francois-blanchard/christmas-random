@@ -1,100 +1,216 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
-
-$main_padding : 10px;
-
-html{background-color: #262322;}
-
-:focus {
-    outline: 0;
-}
-
-// BOXSIZING
-.content *{
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;
-}
-
-// BTN
-.button{
-  background-color: #9AA0A8;
-  border: 3px solid #9AA0A8;
-  font-size: 18px;
-  text-align: center;
-}
-
-// FORM
-.new-user{
-  padding: $main_padding;
-  input[type='text']{
-    width: 100%;
-    background: #454545;
-    border: 3px solid #9AA0A8;
-    height: 40px;
-    padding: 10px 105px 10px 10px;
-    font-size: 18px;
-    color: #FFF;
-  }
-  input[type='submit']{
-    position: absolute;
-    top: 0;
-    right: 0;
-    top: $main_padding;
-    right: $main_padding;
-    height: 40px;
-    width: 100px;
-  }
-  &.error{
-    input{
-      border-color: red;
-    }
-  }
-  span.error{
-    background-color: red;
-    color: #FFF;
-    width: 100%;
-    display: block;
-    padding: 10px;
-  }
-}
-
-// Listing
-.list{
-  padding: $main_padding;
-  h3{
-    background-color:#46A40F;
-    color: #FFF;
-    padding: 15px;
-    text-align: center;
-  }
-  ul{
-    border: 3px solid #9AA0A8;
-  }
-  li{
-    padding: 10px;
-    background-color: #454545;
-    color: #9AA0A8;
-    border-bottom: 1px solid #9AA0A8;
-    &:last-child{
-      border: none;
-    }
-  }
-}
-
-// Random
-.btn-pick{
-  margin: 0 auto;
+/*
+.toto {
+  @include dib();
   display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border: 1px solid yellow;
+  font-size: 10px;
+  color: blue;
+  background: #ffffff url('img/toto.png') top center no-repeat;
+}
+*/
+
+@import 
+"compass/css3",
+"compass/reset",
+"mixins";
+
+//@include font-face("la_chatte_a_mamanregular", font-files("fonts/la_chatte_a_maman-webfont.eot", "fonts/la_chatte_a_maman-webfont.svg","fonts/la_chatte_a_maman-webfont.ttf","fonts/la_chatte_a_maman-webfont.woff","fonts/la_chatte_a_maman-webfont.woff2"));
+@font-face {
+    font-family: 'la_chatte_a_mamanregular';
+    src: url('fonts/la_chatte_a_maman-webfont.eot');
+    src: url('fonts/la_chatte_a_maman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/la_chatte_a_maman-webfont.woff2') format('woff2'),
+         url('fonts/la_chatte_a_maman-webfont.woff') format('woff'),
+         url('fonts/la_chatte_a_maman-webfont.ttf') format('truetype'),
+         url('fonts/la_chatte_a_maman-webfont.svg#la_chatte_a_mamanregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.name-picked{
-  background-color: #46A40F;
-  color: #FFF;
-  margin: $main_padding;
-  padding: $main_padding;
+
+$gold : #DAA520;
+$red : #991903;
+$white : #FFFFFF;
+$grey : #AAAAAA;
+
+html{
+  background-color: $white;
+  button:focus {
+    outline: 0;
+  }
 }
+
+header {
+  position: relative;
+  width: 100%;
+  padding: 1% 0%;
+  text-align: center;
+  background-color: $red;
+  border-bottom: 3px solid $gold;
+
+  h1 {
+    font-family: "la_chatte_a_mamanregular";
+    color: $white;
+    font-size: 7vw;
+  }
+}
+
+.content {
+  position: relative;
+  width: 95%;
+  margin: 1% auto 0;
+
+  section {
+    display: inline-block;
+    *display:inline;zoom:1;
+    vertical-align: bottom;
+  }
+}
+
+.leftSide {
+  width: 37%;
+  border: 3px solid $gold;
+  border-bottom: 0;
+  font-family: 'Architects Daughter', cursive;
+
+  form {
+    position: relative;
+
+    input[type=text] {
+      width: 97%;
+      padding: 3% 0 3% 3%;
+      border-bottom: 3px solid $gold;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      text-transform: capitalize;
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1.3vw;
+      color: $red;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input[type=submit] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 25%;
+      background-color: $gold;
+      border: none;
+      cursor: pointer;
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1.7vw;
+      color:$red;
+    }
+  }
+
+  .list {
+    h3 {
+      padding: 3%;
+      font-size: 1.5vw;
+      color: $gold;
+      background-color: $red;
+    }
+
+    li {
+      position: relative;
+      padding: 2% 2% 2% 15%;
+      border-bottom: 3px solid $gold;
+      background:transparent url('../image/gift_unactive.png') 5% center no-repeat;
+
+      p{
+        display: inline-block;
+      }
+
+      .userName {
+        margin-left: 5%;
+        font-size: 1.5vw;
+        color: $grey;
+        text-transform: capitalize;
+      }
+
+      &.active{
+        background:transparent url('../image/gift_active.png') 5% center no-repeat;
+
+        .userName {
+          color: $gold;
+        }
+      }  
+      
+    }
+
+    .removeUser{
+      @include border-radius(30px, 30px);
+      position: relative;
+      width: 30px;
+      height: 30px;
+      background-color: $red;
+      cursor: pointer;
+      vertical-align: bottom;
+    }
+
+    .cross{
+        display: block;
+        width: 6px;
+        height: 20px;
+        margin-top: 5px;
+        margin-left: 12px;
+        background-color: $white;
+        
+
+        &.crossRight{
+          @include rotate(-45deg);
+        }
+
+         &.crossLeft{
+          @include rotate(45deg);
+          position: absolute;
+          top: 0;
+        }
+      }
+  }
+}
+
+.centerSide {
+  
+  width: 20%;
+  font-family: 'Architects Daughter', cursive;
+
+  .pickStatus {
+    text-align: center;
+
+    button {
+      @include border-radius(50%,50%);
+      width: 128px; height: 128px;
+      background:$gold url('../image/santa.png') center center no-repeat;
+      border: 0;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 5%;
+      font-size: 1.2vw;
+      color: $red;
+    }
+  }
+}
+
+.rightSide {
+  width: 40%;
+  background-color: $red;
+}
+
+
+
+

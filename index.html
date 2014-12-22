@@ -4,39 +4,67 @@
     <meta charset="utf-8">
     <title>Chacun son tour pour noël</title>
     <link rel="stylesheet" href="stylesheets/screen.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width">
   </head>
 
   <body ng-app="christmas">
 
+    <header>
+      <h1>Joyeux Noël</h1>
+    </header>
+
     <div ng-controller="UsersController" class="content">
 
-      <!-- (userForm.$error.required && userForm.userName.$dirty) || (error_username && userForm.userName.$pristine) -->
+    <!-- LEFT -->
+      <section class="leftSide">
+        <!-- Ajouter un nom -->
+        <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.userName.$pristine)}">
+          <input type="text" placeholder="écrire un prénom" ng-model="newUser.userName" name='userName' autocomplete='off' required>
+          <span class="error" ng-show="(error_username && userForm.userName.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
+          <input type="submit" class='button' value="Ajouter">
+        </form>
 
-      <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.userName.$pristine)}">
-        <input type="text" placeholder="Ecrire un prénom" ng-model="newUser.userName" name='userName' autocomplete='off' required>
-         <span class="error" ng-show="(error_username && userForm.userName.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
-        <input type="submit" class='button' value="Ajouter">
-      </form>
-
-      <p class="name-picked">Au tour de : {{user_picked.userName}}</p>
-      <div ng-switch on="pick_status">
-        <div ng-switch-when="pick">
-            <button ng-click="pick_random_user()" class="button btn-pick">Tirage au sort</button>
+        <!--Liste des participants {{user.picked}}-->
+        <div class="list">
+          <h3>PARTICIPANTS</h3>
+          <ul>
+            <li ng-repeat="user in users" ng-class="{active: (user.picked)}">
+              <p class="removeUser" ng-click='delete_user(user)'><span class="cross crossRight"></span><span class="cross crossLeft"></span></p>
+              <p class="userName">{{user.userName}}</p>
+            </li>
+          </ul>
         </div>
-        <div ng-switch-default>
-            Fini
-        </div>
-      </div>
+      </section><!--
 
-      <div class="list">
-        <h3>LISTE DES NOMS</h3>
-        <ul>
-          <li ng-repeat="user in users" ng-click="delete_user(user)">{{user.userName}} ({{user.picked}})</li>
-        </ul>
-      </div>
+    CENTER : Call to action
+
+    --><section class="centerSide">
+        <div ng-switch on="pick_status" class="pickStatus">
+          <div ng-switch-when="pick">
+              <button ng-click="pick_random_user()" class="button btn-pick"></button>
+              <p>À qui l'tour ?</p>
+          </div>
+          <div ng-switch-default>
+              Fini
+          </div>
+        </div>
+      </section><!--
+
+    RIGHT
+
+    --><section class="rightSide">
+        <p>Tu peux ouvrir tes cadeaux ... </p>
+        <p class="name">{{user_picked.userName}}</p>
+      </section>
 
     </div>
+
+    <footer>
+        <p>Made by François & his future wife.
+          <span>He is very proud of her and they love each other. Don't forget their cat, JS, he was their inspiration. He was very hurted by the creator each night ... Don't tell to PETA !!</span>
+        </p>
+    </footer>
 
     <!--[if IE]><script src="https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js"></script><![endif]-->
     <script src ="bower_components/jquery/dist/jquery.min.js"></script>

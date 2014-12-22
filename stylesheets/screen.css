@@ -1,8 +1,20 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+@charset "UTF-8";
+/*
+.toto {
+  @include dib();
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border: 1px solid yellow;
+  font-size: 10px;
+  color: blue;
+  background: #ffffff url('img/toto.png') top center no-repeat;
+}
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,150 +36,204 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../.rvm/gems/ruby-2.1.1@global/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
-/* line 10, ../sass/screen.scss */
+@font-face {
+  font-family: 'la_chatte_a_mamanregular';
+  src: url("fonts/la_chatte_a_maman-webfont.eot");
+  src: url("fonts/la_chatte_a_maman-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/la_chatte_a_maman-webfont.woff2") format("woff2"), url("fonts/la_chatte_a_maman-webfont.woff") format("woff"), url("fonts/la_chatte_a_maman-webfont.ttf") format("truetype"), url("fonts/la_chatte_a_maman-webfont.svg#la_chatte_a_mamanregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 html {
-  background-color: #262322;
+  background-color: #FFFFFF;
 }
 
-/* line 12, ../sass/screen.scss */
-:focus {
-  outline: 0;
-}
-
-/* line 17, ../sass/screen.scss */
-.content * {
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-}
-
-/* line 24, ../sass/screen.scss */
-.button {
-  background-color: #9AA0A8;
-  border: 3px solid #9AA0A8;
-  font-size: 18px;
-  text-align: center;
-}
-
-/* line 32, ../sass/screen.scss */
-.new-user {
-  padding: 10px;
-}
-/* line 34, ../sass/screen.scss */
-.new-user input[type='text'] {
+header {
+  position: relative;
   width: 100%;
-  background: #454545;
-  border: 3px solid #9AA0A8;
-  height: 40px;
-  padding: 10px 105px 10px 10px;
-  font-size: 18px;
-  color: #FFF;
+  padding: 1% 0%;
+  text-align: center;
+  background-color: #991903;
+  border-bottom: 3px solid #DAA520;
 }
-/* line 43, ../sass/screen.scss */
-.new-user input[type='submit'] {
+header h1 {
+  font-family: "la_chatte_a_mamanregular";
+  color: #FFFFFF;
+  font-size: 7vw;
+}
+
+.content {
+  position: relative;
+  width: 95%;
+  margin: 1% auto 0;
+}
+.content section {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: bottom;
+}
+
+.leftSide {
+  width: 37%;
+  border: 3px solid #DAA520;
+  border-bottom: 0;
+  font-family: 'Architects Daughter', cursive;
+}
+.leftSide form {
+  position: relative;
+}
+.leftSide form input[type=text] {
+  width: 97%;
+  padding: 3% 0 3% 3%;
+  border-bottom: 3px solid #DAA520;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  text-transform: capitalize;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.3vw;
+  color: #991903;
+}
+.leftSide form input[type=text]:focus {
+  outline: none;
+}
+.leftSide form input[type=submit] {
   position: absolute;
   top: 0;
   right: 0;
-  top: 10px;
-  right: 10px;
-  height: 40px;
-  width: 100px;
+  height: 100%;
+  width: 25%;
+  background-color: #DAA520;
+  border: none;
+  cursor: pointer;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.7vw;
+  color: #991903;
 }
-/* line 53, ../sass/screen.scss */
-.new-user.error input {
-  border-color: red;
+.leftSide .list h3 {
+  padding: 3%;
+  font-size: 1.5vw;
+  color: #DAA520;
+  background-color: #991903;
 }
-/* line 57, ../sass/screen.scss */
-.new-user span.error {
-  background-color: red;
-  color: #FFF;
-  width: 100%;
+.leftSide .list li {
+  position: relative;
+  padding: 2% 2% 2% 15%;
+  border-bottom: 3px solid #DAA520;
+  background: transparent url("../image/gift_unactive.png") 5% center no-repeat;
+}
+.leftSide .list li p {
+  display: inline-block;
+}
+.leftSide .list li .userName {
+  margin-left: 5%;
+  font-size: 1.5vw;
+  color: #AAAAAA;
+  text-transform: capitalize;
+}
+.leftSide .list li.active {
+  background: transparent url("../image/gift_active.png") 5% center no-repeat;
+}
+.leftSide .list li.active .userName {
+  color: #DAA520;
+}
+.leftSide .list .removeUser {
+  -moz-border-radius: 30px / 30px;
+  -webkit-border-radius: 30px 30px;
+  border-radius: 30px / 30px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #991903;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+.leftSide .list .cross {
   display: block;
-  padding: 10px;
+  width: 6px;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 12px;
+  background-color: #FFFFFF;
+}
+.leftSide .list .cross.crossRight {
+  -webkit-transform: rotate(-45deg);
+  /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.leftSide .list .cross.crossLeft {
+  -webkit-transform: rotate(45deg);
+  /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
 }
 
-/* line 67, ../sass/screen.scss */
-.list {
-  padding: 10px;
+.centerSide {
+  width: 20%;
+  font-family: 'Architects Daughter', cursive;
 }
-/* line 69, ../sass/screen.scss */
-.list h3 {
-  background-color: #46A40F;
-  color: #FFF;
-  padding: 15px;
+.centerSide .pickStatus {
   text-align: center;
 }
-/* line 75, ../sass/screen.scss */
-.list ul {
-  border: 3px solid #9AA0A8;
+.centerSide .pickStatus button {
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  width: 128px;
+  height: 128px;
+  background: #DAA520 url("../image/santa.png") center center no-repeat;
+  border: 0;
+  cursor: pointer;
 }
-/* line 78, ../sass/screen.scss */
-.list li {
-  padding: 10px;
-  background-color: #454545;
-  color: #9AA0A8;
-  border-bottom: 1px solid #9AA0A8;
-}
-/* line 83, ../sass/screen.scss */
-.list li:last-child {
-  border: none;
-}
-
-/* line 90, ../sass/screen.scss */
-.btn-pick {
-  margin: 0 auto;
-  display: block;
+.centerSide .pickStatus p {
+  margin-top: 5%;
+  font-size: 1.2vw;
+  color: #991903;
 }
 
-/* line 95, ../sass/screen.scss */
-.name-picked {
-  background-color: #46A40F;
-  color: #FFF;
-  margin: 10px;
-  padding: 10px;
+.rightSide {
+  width: 40%;
+  background-color: #991903;
 }
+
+/*# sourceMappingURL=screen.css.map */
