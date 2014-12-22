@@ -1,0 +1,7 @@
+@mixin rotate ($deg) {
+    
+     -webkit-transform: rotate($deg);/* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+      -moz-transform: rotate($deg);
+      -o-transform:rotate($deg);
+      transform:rotate($deg);
+}

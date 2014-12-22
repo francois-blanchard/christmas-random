@@ -18,7 +18,8 @@
 
 @import 
 "compass/css3",
-"compass/reset";
+"compass/reset",
+"mixins";
 
 //@include font-face("la_chatte_a_mamanregular", font-files("fonts/la_chatte_a_maman-webfont.eot", "fonts/la_chatte_a_maman-webfont.svg","fonts/la_chatte_a_maman-webfont.ttf","fonts/la_chatte_a_maman-webfont.woff","fonts/la_chatte_a_maman-webfont.woff2"));
 @font-face {
@@ -37,16 +38,19 @@
 $gold : #DAA520;
 $red : #991903;
 $white : #FFFFFF;
-$main_padding :10px;
+$grey : #AAAAAA;
 
 html{
   background-color: $white;
+  button:focus {
+    outline: 0;
+  }
 }
 
 header {
   position: relative;
   width: 100%;
-  padding: 3% 0%;
+  padding: 1% 0%;
   text-align: center;
   background-color: $red;
   border-bottom: 3px solid $gold;
@@ -54,30 +58,152 @@ header {
   h1 {
     font-family: "la_chatte_a_mamanregular";
     color: $white;
-    font-size: 12vw;
+    font-size: 7vw;
   }
 }
 
 .content {
   position: relative;
   width: 95%;
-  margin: 0 auto;
-  //background-color: $red;
+  margin: 1% auto 0;
 
   section {
     display: inline-block;
     *display:inline;zoom:1;
+    vertical-align: bottom;
   }
 }
 
 .leftSide {
-  width: 40%;
-  background-color: $red;
+  width: 37%;
+  border: 3px solid $gold;
+  border-bottom: 0;
+  font-family: 'Architects Daughter', cursive;
+
+  form {
+    position: relative;
+
+    input[type=text] {
+      width: 97%;
+      padding: 3% 0 3% 3%;
+      border-bottom: 3px solid $gold;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      text-transform: capitalize;
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1.3vw;
+      color: $red;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input[type=submit] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 25%;
+      background-color: $gold;
+      border: none;
+      cursor: pointer;
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1.7vw;
+      color:$red;
+    }
+  }
+
+  .list {
+    h3 {
+      padding: 3%;
+      font-size: 1.5vw;
+      color: $gold;
+      background-color: $red;
+    }
+
+    li {
+      position: relative;
+      padding: 2% 2% 2% 15%;
+      border-bottom: 3px solid $gold;
+      background:transparent url('../image/gift_unactive.png') 5% center no-repeat;
+
+      p{
+        display: inline-block;
+      }
+
+      .userName {
+        margin-left: 5%;
+        font-size: 1.5vw;
+        color: $grey;
+        text-transform: capitalize;
+      }
+
+      &.active{
+        background:transparent url('../image/gift_active.png') 5% center no-repeat;
+
+        .userName {
+          color: $gold;
+        }
+      }  
+      
+    }
+
+    .removeUser{
+      @include border-radius(30px, 30px);
+      position: relative;
+      width: 30px;
+      height: 30px;
+      background-color: $red;
+      cursor: pointer;
+      vertical-align: bottom;
+    }
+
+    .cross{
+        display: block;
+        width: 6px;
+        height: 20px;
+        margin-top: 5px;
+        margin-left: 12px;
+        background-color: $white;
+        
+
+        &.crossRight{
+          @include rotate(-45deg);
+        }
+
+         &.crossLeft{
+          @include rotate(45deg);
+          position: absolute;
+          top: 0;
+        }
+      }
+  }
 }
 
 .centerSide {
+  
   width: 20%;
-  background-color: $gold;
+  font-family: 'Architects Daughter', cursive;
+
+  .pickStatus {
+    text-align: center;
+
+    button {
+      @include border-radius(50%,50%);
+      width: 128px; height: 128px;
+      background:$gold url('../image/santa.png') center center no-repeat;
+      border: 0;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 5%;
+      font-size: 1.2vw;
+      color: $red;
+    }
+  }
 }
 
 .rightSide {

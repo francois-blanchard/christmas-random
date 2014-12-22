@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 .toto {
   @include dib();
@@ -14,7 +15,6 @@
   background: #ffffff url('img/toto.png') top center no-repeat;
 }
 */
-/* line 5, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -36,45 +36,37 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../.rvm/gems/ruby-2.1.5@christmas/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -86,54 +78,162 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-weight: normal;
   font-style: normal;
 }
-/* line 42, ../sass/screen.scss */
 html {
   background-color: #FFFFFF;
 }
 
-/* line 46, ../sass/screen.scss */
 header {
   position: relative;
   width: 100%;
-  padding: 3% 0%;
+  padding: 1% 0%;
   text-align: center;
   background-color: #991903;
   border-bottom: 3px solid #DAA520;
 }
-/* line 54, ../sass/screen.scss */
 header h1 {
   font-family: "la_chatte_a_mamanregular";
   color: #FFFFFF;
-  font-size: 12vw;
+  font-size: 7vw;
 }
 
-/* line 61, ../sass/screen.scss */
 .content {
   position: relative;
   width: 95%;
-  margin: 0 auto;
+  margin: 1% auto 0;
 }
-/* line 67, ../sass/screen.scss */
 .content section {
   display: inline-block;
   *display: inline;
   zoom: 1;
+  vertical-align: bottom;
 }
 
-/* line 73, ../sass/screen.scss */
 .leftSide {
-  width: 40%;
+  width: 37%;
+  border: 3px solid #DAA520;
+  border-bottom: 0;
+  font-family: 'Architects Daughter', cursive;
+}
+.leftSide form {
+  position: relative;
+}
+.leftSide form input[type=text] {
+  width: 97%;
+  padding: 3% 0 3% 3%;
+  border-bottom: 3px solid #DAA520;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  text-transform: capitalize;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.3vw;
+  color: #991903;
+}
+.leftSide form input[type=text]:focus {
+  outline: none;
+}
+.leftSide form input[type=submit] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 25%;
+  background-color: #DAA520;
+  border: none;
+  cursor: pointer;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.7vw;
+  color: #991903;
+}
+.leftSide .list h3 {
+  padding: 3%;
+  font-size: 1.5vw;
+  color: #DAA520;
   background-color: #991903;
 }
-
-/* line 78, ../sass/screen.scss */
-.centerSide {
-  width: 20%;
-  background-color: #DAA520;
+.leftSide .list li {
+  position: relative;
+  padding: 2% 2% 2% 15%;
+  border-bottom: 3px solid #DAA520;
+  background: transparent url("../image/gift_unactive.png") 5% center no-repeat;
+}
+.leftSide .list li p {
+  display: inline-block;
+}
+.leftSide .list li .userName {
+  margin-left: 5%;
+  font-size: 1.5vw;
+  color: #AAAAAA;
+  text-transform: capitalize;
+}
+.leftSide .list li.active {
+  background: transparent url("../image/gift_active.png") 5% center no-repeat;
+}
+.leftSide .list li.active .userName {
+  color: #DAA520;
+}
+.leftSide .list .removeUser {
+  -moz-border-radius: 30px / 30px;
+  -webkit-border-radius: 30px 30px;
+  border-radius: 30px / 30px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: #991903;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+.leftSide .list .cross {
+  display: block;
+  width: 6px;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 12px;
+  background-color: #FFFFFF;
+}
+.leftSide .list .cross.crossRight {
+  -webkit-transform: rotate(-45deg);
+  /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.leftSide .list .cross.crossLeft {
+  -webkit-transform: rotate(45deg);
+  /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
 }
 
-/* line 83, ../sass/screen.scss */
+.centerSide {
+  width: 20%;
+  font-family: 'Architects Daughter', cursive;
+}
+.centerSide .pickStatus {
+  text-align: center;
+}
+.centerSide .pickStatus button {
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  width: 128px;
+  height: 128px;
+  background: #DAA520 url("../image/santa.png") center center no-repeat;
+  border: 0;
+  cursor: pointer;
+}
+.centerSide .pickStatus p {
+  margin-top: 5%;
+  font-size: 1.2vw;
+  color: #991903;
+}
+
 .rightSide {
   width: 40%;
   background-color: #991903;
 }
+
+/*# sourceMappingURL=screen.css.map */
