@@ -27,6 +27,10 @@ app.service('User', function(){
     $this.users.push(newUser);
   };
 
+  $this.delete = function (user) {
+    $this.users.splice($this.users.indexOf(user), 1);
+  };
+
   $this.picked_user = function(){
     var remaining_user = _.where(this.users, { 'picked': false });
     var user_picked = remaining_user[_.random(remaining_user.length-1)];
@@ -73,6 +77,10 @@ app.controller('UsersController', function($scope, User){
     if(User.end_picked()){
       $scope.pick_status = "end";
     }
+  };
+
+  $scope.delete_user = function(user){
+    User.delete(user);
   };
 
 });

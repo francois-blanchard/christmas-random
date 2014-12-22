@@ -32,7 +32,7 @@
       <div class="list">
         <h3>LISTE DES NOMS</h3>
         <ul>
-          <li ng-repeat="user in users">{{user.userName}} ({{user.picked}})</li>
+          <li ng-repeat="user in users" ng-click="delete_user(user)">{{user.userName}} ({{user.picked}})</li>
         </ul>
       </div>
 
