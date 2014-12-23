@@ -79,7 +79,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-style: normal;
 }
 html {
+  height: 100%;
   background-color: #FFFFFF;
+}
+html button:focus {
+  outline: 0;
 }
 
 header {
@@ -99,13 +103,14 @@ header h1 {
 .content {
   position: relative;
   width: 95%;
-  margin: 1% auto 0;
+  margin: 5% auto 0;
 }
 .content section {
   display: inline-block;
   *display: inline;
   zoom: 1;
-  vertical-align: bottom;
+  vertical-align: top;
+  z-index: 10;
 }
 
 .leftSide {
@@ -144,6 +149,9 @@ header h1 {
   font-family: 'Architects Daughter', cursive;
   font-size: 1.7vw;
   color: #991903;
+}
+.leftSide .list {
+  background-color: #FFFFFF;
 }
 .leftSide .list h3 {
   padding: 3%;
@@ -214,16 +222,26 @@ header h1 {
 }
 .centerSide .pickStatus {
   text-align: center;
+  margin-top: 25%;
 }
 .centerSide .pickStatus button {
   -moz-border-radius: 50% / 50%;
   -webkit-border-radius: 50% 50%;
   border-radius: 50% / 50%;
+  position: relative;
   width: 128px;
   height: 128px;
-  background: #DAA520 url("../image/santa.png") center center no-repeat;
+  background-color: #DAA520;
   border: 0;
   cursor: pointer;
+}
+.centerSide .pickStatus button img {
+  position: absolute;
+  width: 75px;
+  height: 76px;
+  top: 30px;
+  left: 30px;
+  animation: bounce 0.7s ease 3s 5 alternate;
 }
 .centerSide .pickStatus p {
   margin-top: 5%;
@@ -231,9 +249,39 @@ header h1 {
   color: #991903;
 }
 
+@keyframes bounce {
+  from {
+    top: 30px;
+  }
+  50% {
+    top: 10px;
+  }
+  to {
+    top: 30px;
+  }
+}
 .rightSide {
-  width: 40%;
-  background-color: #991903;
+  width: 36%;
+  padding: 2%;
+  border: 3px solid #DAA520;
+  font-family: 'Architects Daughter', cursive;
+  background-color: #FFFFFF;
+}
+.rightSide .accroche {
+  font-size: 1.5vw;
+  line-height: 1.5;
+  color: #991903;
+  text-align: center;
+}
+.rightSide .name {
+  margin: 13% 0 10%;
+  font-size: 4.5vw;
+  color: #daa520;
+  text-align: center;
+}
+
+footer {
+  display: none;
 }
 
 /*# sourceMappingURL=screen.css.map */

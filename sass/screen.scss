@@ -39,9 +39,12 @@ $gold : #DAA520;
 $red : #991903;
 $white : #FFFFFF;
 $grey : #AAAAAA;
+$grey_light : #EEEEEE;
 
 html{
+  height: 100%;
   background-color: $white;
+  
   button:focus {
     outline: 0;
   }
@@ -65,12 +68,13 @@ header {
 .content {
   position: relative;
   width: 95%;
-  margin: 1% auto 0;
+  margin: 5% auto 0;
 
   section {
     display: inline-block;
     *display:inline;zoom:1;
-    vertical-align: bottom;
+    vertical-align: top;
+    z-index: 10;
   }
 }
 
@@ -116,6 +120,8 @@ header {
   }
 
   .list {
+    background-color: $white;
+
     h3 {
       padding: 3%;
       font-size: 1.5vw;
@@ -189,13 +195,27 @@ header {
 
   .pickStatus {
     text-align: center;
+    margin-top: 25%;
 
     button {
       @include border-radius(50%,50%);
+      position: relative;
       width: 128px; height: 128px;
-      background:$gold url('../image/santa.png') center center no-repeat;
+      background-color:$gold ;
       border: 0;
       cursor: pointer;
+
+      img {
+        position: absolute;
+        width:75px;
+        height:76px;
+        top: 30px;
+        left: 30px; 
+        -webkit-animation-name: bounce;
+        -webkit-animation-duration: 7s;
+        -webkit-animation-iteration-count: 3;
+        -webkit-transition-timing-function: linear;
+      }
     }
 
     p {
@@ -206,11 +226,37 @@ header {
   }
 }
 
-.rightSide {
-  width: 40%;
-  background-color: $red;
+@keyframes bounce{
+     0% {top: 0px;}
+     71%  {top: 30px;}
+     100%   {top: 30px;}
 }
 
+.rightSide {
+  width: 36%;
+  padding: 2%;
+  border: 3px solid $gold;
+  font-family: 'Architects Daughter', cursive;
+  background-color: $white;
+
+  .accroche {
+    font-size: 1.5vw;
+    line-height: 1.5;
+    color: $red;
+    text-align: center;
+  }
+
+  .name {
+    margin: 13% 0 10%;
+    font-size: 4.5vw;
+    color: #daa520;
+    text-align: center;
+  }
+}
+
+footer {
+  display: none;
+}
 
 
 
