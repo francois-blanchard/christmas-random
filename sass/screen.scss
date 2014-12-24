@@ -50,6 +50,10 @@ html{
   }
 }
 
+body {
+  height: 100%;
+}
+
 header {
   position: relative;
   width: 100%;
@@ -64,6 +68,8 @@ header {
     font-size: 7vw;
   }
 }
+
+
 
 .content {
   position: relative;
@@ -211,10 +217,15 @@ header {
         height:76px;
         top: 30px;
         left: 30px; 
-        -webkit-animation-name: bounce;
-        -webkit-animation-duration: 7s;
-        -webkit-animation-iteration-count: 3;
-        -webkit-transition-timing-function: linear;
+        animation: bounce 0.7s linear 3 backwards;     
+        -webkit-animation: bounce 0.7s linear 3 backwards;      
+      }
+
+      &:hover {
+        img {
+           animation: bounce 0.7s linear 3 backwards;     
+          -webkit-animation: bounce 0.7s linear 3 backwards; 
+        }
       }
     }
 
@@ -227,9 +238,15 @@ header {
 }
 
 @keyframes bounce{
-     0% {top: 0px;}
-     71%  {top: 30px;}
-     100%   {top: 30px;}
+     from {top: 30px;}
+     50%  {top: 15px;}
+     to   {top: 30px;}
+}
+
+@-webkit-keyframes bounce{
+     from {top: 30px;}
+     50%  {top: 15px;}
+     to   {top: 30px;}
 }
 
 .rightSide {
