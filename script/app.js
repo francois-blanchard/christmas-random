@@ -35,6 +35,10 @@ app.service('User', function(){
     $this.users.splice($this.users);
   };
 
+  $this.restart = function () {
+    _.mapValues($this.users, function(user) { user.picked = false; });
+  };
+
   $this.picked_user = function(){
     var remaining_user = _.where(this.users, { 'picked': false });
     var user_picked = remaining_user[_.random(remaining_user.length-1)];
@@ -53,7 +57,7 @@ app.service('User', function(){
 // CONTROLLERS
 //
 
-app.controller('UsersController', function($scope, User){
+app.controller('UsersController', function($scope, User, $timeout){
 
   // STATUS : 'init','pick','end'
   $scope.users = User.all();
@@ -77,7 +81,16 @@ app.controller('UsersController', function($scope, User){
     $scope.userForm.$setPristine();
   };
 
-  $scope.pick_random_user = function(){
+  $scope.load_picked = function(){
+    if($scope.start_app != "load"){
+      $scope.start_app = "load";
+      $timeout(function(){
+        pick_random_user();
+      }, 3000);
+    }
+  };
+
+  pick_random_user = function(){
     $scope.user_picked = User.picked_user();
     $scope.start_app = "set";
     if(User.end_picked()){
@@ -95,12 +108,11 @@ app.controller('UsersController', function($scope, User){
   };
   $scope.restart_game =function() {
     // STATUS : 'init','pick','end'
-    $scope.users = User.all();
     $scope.newUser = {};
     $scope.pick_status = "pick";
     $scope.start_app = "start";
     $scope.error_username = false;
-    User.removeAll();
+    User.restart();
   };
 
 });

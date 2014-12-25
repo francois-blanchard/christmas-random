@@ -16,7 +16,7 @@
 }
 */
 
-@import 
+@import
 "compass/css3",
 "compass/reset",
 "mixins";
@@ -41,10 +41,31 @@ $white : #FFFFFF;
 $grey : #AAAAAA;
 $grey_light : #EEEEEE;
 
+// assume min-width (by default) if only a number
+$high-tide: 500px;
+// set min-width/max-width if both values are numbers
+$ex-presidents: 600px 800px;
+// if one value is a string, assume a feature/value pair
+$surfboard-width: max-width 1000px;
+// string tests together within parentheses, assume each item is a feature value pair
+$surfboard-height: (min-height 1000px) (orientation portrait);
+
+.center{
+  display: block;
+  margin: 0 auto;
+}
+
+.error{
+  display: block;
+  background-color:$red;
+  padding: 5px;
+  color:$gold;
+}
+
 html{
   height: 100%;
   background-color: $white;
-  
+
   button:focus {
     outline: 0;
   }
@@ -95,6 +116,7 @@ header {
 
     input[type=text] {
       width: 97%;
+      height: 27px;
       padding: 3% 0 3% 3%;
       border-bottom: 3px solid $gold;
       border-top: 0;
@@ -137,9 +159,9 @@ header {
 
     li {
       position: relative;
-      padding: 2% 2% 2% 15%;
+      padding: 2% 2% 2% 60px;
       border-bottom: 3px solid $gold;
-      background:transparent url('../image/gift_unactive.png') 5% center no-repeat;
+      background:transparent url('../image/gift_unactive.png') 17px center no-repeat;
 
       p{
         display: inline-block;
@@ -158,8 +180,8 @@ header {
         .userName {
           color: $gold;
         }
-      }  
-      
+      }
+
     }
 
     .removeUser{
@@ -179,7 +201,7 @@ header {
         margin-top: 5px;
         margin-left: 12px;
         background-color: $white;
-        
+
 
         &.crossRight{
           @include rotate(-45deg);
@@ -195,7 +217,7 @@ header {
 }
 
 .centerSide {
-  
+
   width: 20%;
   font-family: 'Architects Daughter', cursive;
 
@@ -216,15 +238,15 @@ header {
         width:75px;
         height:76px;
         top: 30px;
-        left: 30px; 
-        animation: bounce 0.7s linear 3 backwards;     
-        -webkit-animation: bounce 0.7s linear 3 backwards;      
+        left: 30px;
+        // animation: bounce 0.7s linear 3 backwards;
+        // -webkit-animation: bounce 0.7s linear 3 backwards;
       }
 
       &:hover {
         img {
-           animation: bounce 0.7s linear 3 backwards;     
-          -webkit-animation: bounce 0.7s linear 3 backwards; 
+          //  animation: bounce 0.7s linear 3 backwards;
+          // -webkit-animation: bounce 0.7s linear 3 backwards;
         }
       }
     }

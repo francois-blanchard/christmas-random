@@ -19,9 +19,9 @@
     <!-- LEFT -->
       <section class="leftSide">
         <!-- Ajouter un nom -->
-        <form ng-submit="addUser()" class="new-user" name="userForm" novalidate ng-class="{error: (error_username && userForm.userName.$pristine)}">
-          <input type="text" placeholder="écrire un prénom" ng-model="newUser.userName" name='userName' autocomplete='off' required>
+        <form ng-submit="addUser()" class="new-user" name="userForm" novalidate>
           <span class="error" ng-show="(error_username && userForm.userName.$pristine)">Vous devez renseigner un ou plusieurs prénoms</span>
+          <input type="text" placeholder="écrire un prénom" ng-model="newUser.userName" name='userName' autocomplete='off' required>
           <input type="submit" class='button' value="Ajouter">
         </form>
 
@@ -42,7 +42,7 @@
     --><section class="centerSide">
         <div ng-switch on="pick_status" class="pickStatus">
           <div ng-switch-when="pick">
-              <button ng-click="pick_random_user()" class="button btn-pick">
+              <button ng-click="load_picked()" class="button btn-pick">
                 <img src="image/santa.png" alt="Joues avec moi!" width="75" height="76">
               </button>
               <p>À qui l'tour ?</p>
@@ -67,7 +67,11 @@
 
     --><section class="rightSide" ng-switch on="start_app">
         <div ng-switch-when="start">
-          <p class="accroche"> Cliques sur le Père Noël pour commencer à ouvrir tes cadeaux! </p>
+          <p class="accroche"> Cliques sur le Père Noël pour savoir qui va commencer à ouvrir ses cadeaux! </p>
+        </div>
+        <div ng-switch-when="load">
+          <img class="center" src="image/gift.gif" alt="">
+          <p class="accroche"> Chargement </p>
         </div>
         <div ng-switch-when="set">
           <p class="accroche">Tu peux ouvrir tes cadeaux ... </p>

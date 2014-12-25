@@ -19,7 +19,7 @@ var snow = {
             frag = document.createDocumentFragment();
         o.getSize();
 
-        
+
 
         for(var i = 0; i < nb; i++){
             var flake = {
@@ -49,6 +49,9 @@ var snow = {
 
     animate : function(){
         var o = this;
+
+        o.getSize(); // HACK for responsive
+
         for(var i = 0, c = o.flakes.length; i < c; i++){
             var flake = o.flakes[i],
                 top = flake.y + flake.yspeed,
