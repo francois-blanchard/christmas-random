@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Chacun son tour pour noël</title>
     <link rel="stylesheet" href="stylesheets/screen.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width">
   </head>
@@ -27,6 +28,7 @@
 
         <!--Liste des participants {{user.picked}}-->
         <div class="list">
+          <img class="reload" src="image/refresh-icon.png" alt="" ng-click="restart_game()">
           <h3>PARTICIPANTS</h3>
           <ul>
             <li ng-repeat="user in users" ng-class="{active: (user.picked)}">
@@ -43,7 +45,7 @@
         <div ng-switch on="pick_status" class="pickStatus">
           <div ng-switch-when="pick">
               <button ng-click="load_picked()" class="button btn-pick">
-                <img src="image/santa.png" alt="Joues avec moi!" width="75" height="76">
+                <img src="image/santa.png" alt="Joues avec moi!" width="75" height="76" class="animated bounceIn">
               </button>
               <p>À qui l'tour ?</p>
           </div>

@@ -13,8 +13,15 @@ app.service('User', function(){
   };
 
   $this.users = [
-    new User("François",false),
-    new User("Émilie",false)
+    new User("Corinne",false),
+    new User("Corinne & Franck",false),
+    new User("Hanna",false),
+    new User("Hanna & Nelson",false),
+    new User("Émilie",false),
+    new User("Émilie & François",false),
+    new User("Franck",false),
+    new User("Nelson",false),
+    new User("François",false)
   ];
 
   $this.all = function(){

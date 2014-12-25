@@ -50,6 +50,12 @@ $surfboard-width: max-width 1000px;
 // string tests together within parentheses, assume each item is a feature value pair
 $surfboard-height: (min-height 1000px) (orientation portrait);
 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .center{
   display: block;
   margin: 0 auto;
@@ -72,7 +78,8 @@ html{
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
+  margin-bottom: 10px;
 }
 
 header {
@@ -106,7 +113,7 @@ header {
 }
 
 .leftSide {
-  width: 37%;
+  width: 40%;
   border: 3px solid $gold;
   border-bottom: 0;
   font-family: 'Architects Daughter', cursive;
@@ -116,15 +123,14 @@ header {
 
     input[type=text] {
       width: 97%;
-      height: 27px;
+      height: 45px;
       padding: 3% 0 3% 3%;
-      border-bottom: 3px solid $gold;
       border-top: 0;
       border-left: 0;
       border-right: 0;
       text-transform: capitalize;
       font-family: 'Architects Daughter', cursive;
-      font-size: 1.3vw;
+      font-size: 18px;
       color: $red;
 
       &:focus {
@@ -142,19 +148,33 @@ header {
       border: none;
       cursor: pointer;
       font-family: 'Architects Daughter', cursive;
-      font-size: 1.7vw;
+      font-size: 20px;
       color:$red;
+    }
+
+    .error{
+      width: 75%;
     }
   }
 
   .list {
     background-color: $white;
+    position: relative;
+
+    .reload{
+      position: absolute;
+      top: 13px;
+      right: 10px;
+      cursor: pointer;
+      width: 40px;
+    }
 
     h3 {
       padding: 3%;
-      font-size: 1.5vw;
+      font-size: 22px;
       color: $gold;
       background-color: $red;
+      border-top: 3px solid $gold;
     }
 
     li {
@@ -169,7 +189,8 @@ header {
 
       .userName {
         margin-left: 5%;
-        font-size: 1.5vw;
+        margin-bottom: 4px;
+        font-size: 20px;
         color: $grey;
         text-transform: capitalize;
       }
@@ -253,7 +274,7 @@ header {
 
     p {
       margin-top: 5%;
-      font-size: 1.2vw;
+      font-size: 18px;
       color: $red;
     }
   }
@@ -272,14 +293,14 @@ header {
 }
 
 .rightSide {
-  width: 36%;
+  width: 40%;
   padding: 2%;
   border: 3px solid $gold;
   font-family: 'Architects Daughter', cursive;
   background-color: $white;
 
   .accroche {
-    font-size: 1.5vw;
+    font-size: 18px;
     line-height: 1.5;
     color: $red;
     text-align: center;
@@ -287,7 +308,7 @@ header {
 
   .name {
     margin: 13% 0 10%;
-    font-size: 4.5vw;
+    font-size: 26px;
     color: #daa520;
     text-align: center;
   }
@@ -299,3 +320,32 @@ footer {
 
 
 
+// MEDIA QUERIES
+@media screen and (max-width: 800px) {
+  .leftSide{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .centerSide{
+    width: 30%;
+    .pickStatus{
+      button{
+        border-radius: inherit;
+        background-color : inherit;
+        width: 100%;
+        height: inherit;
+        img{
+          position: relative;
+          display: block;
+          margin: 0 auto;
+          top: 0; left: 0;
+        }
+      }
+    }
+  }
+
+  .rightSide{
+    width: 70%;
+  }
+}

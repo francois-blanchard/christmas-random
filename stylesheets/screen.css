@@ -88,12 +88,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-style: normal;
 }
 /* line 53, ../sass/screen.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 59, ../sass/screen.scss */
 .center {
   display: block;
   margin: 0 auto;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .error {
   display: block;
   background-color: #991903;
@@ -101,22 +108,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #DAA520;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 html {
   height: 100%;
   background-color: #FFFFFF;
 }
-/* line 69, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 html button:focus {
   outline: 0;
 }
 
-/* line 74, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 body {
-  height: 100%;
+  min-height: 100%;
+  margin-bottom: 10px;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 header {
   position: relative;
   width: 100%;
@@ -125,20 +133,20 @@ header {
   background-color: #991903;
   border-bottom: 3px solid #DAA520;
 }
-/* line 86, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 header h1 {
   font-family: "la_chatte_a_mamanregular";
   color: #FFFFFF;
   font-size: 7vw;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 102, ../sass/screen.scss */
 .content {
   position: relative;
   width: 95%;
   margin: 5% auto 0;
 }
-/* line 100, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .content section {
   display: inline-block;
   *display: inline;
@@ -147,36 +155,35 @@ header h1 {
   z-index: 10;
 }
 
-/* line 108, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .leftSide {
-  width: 37%;
+  width: 40%;
   border: 3px solid #DAA520;
   border-bottom: 0;
   font-family: 'Architects Daughter', cursive;
 }
-/* line 114, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 .leftSide form {
   position: relative;
 }
-/* line 117, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .leftSide form input[type=text] {
   width: 97%;
-  height: 27px;
+  height: 45px;
   padding: 3% 0 3% 3%;
-  border-bottom: 3px solid #DAA520;
   border-top: 0;
   border-left: 0;
   border-right: 0;
   text-transform: capitalize;
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.3vw;
+  font-size: 18px;
   color: #991903;
 }
-/* line 130, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 .leftSide form input[type=text]:focus {
   outline: none;
 }
-/* line 135, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 .leftSide form input[type=submit] {
   position: absolute;
   top: 0;
@@ -187,47 +194,62 @@ header h1 {
   border: none;
   cursor: pointer;
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.7vw;
+  font-size: 20px;
   color: #991903;
 }
-/* line 150, ../sass/screen.scss */
-.leftSide .list {
-  background-color: #FFFFFF;
-}
-/* line 153, ../sass/screen.scss */
-.leftSide .list h3 {
-  padding: 3%;
-  font-size: 1.5vw;
-  color: #DAA520;
-  background-color: #991903;
+/* line 155, ../sass/screen.scss */
+.leftSide form .error {
+  width: 75%;
 }
 /* line 160, ../sass/screen.scss */
+.leftSide .list {
+  background-color: #FFFFFF;
+  position: relative;
+}
+/* line 164, ../sass/screen.scss */
+.leftSide .list .reload {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  cursor: pointer;
+  width: 40px;
+}
+/* line 172, ../sass/screen.scss */
+.leftSide .list h3 {
+  padding: 3%;
+  font-size: 22px;
+  color: #DAA520;
+  background-color: #991903;
+  border-top: 3px solid #DAA520;
+}
+/* line 180, ../sass/screen.scss */
 .leftSide .list li {
   position: relative;
   padding: 2% 2% 2% 60px;
   border-bottom: 3px solid #DAA520;
   background: transparent url("../image/gift_unactive.png") 17px center no-repeat;
 }
-/* line 166, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 .leftSide .list li p {
   display: inline-block;
 }
-/* line 170, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .leftSide .list li .userName {
   margin-left: 5%;
-  font-size: 1.5vw;
+  margin-bottom: 4px;
+  font-size: 20px;
   color: #AAAAAA;
   text-transform: capitalize;
 }
-/* line 177, ../sass/screen.scss */
+/* line 198, ../sass/screen.scss */
 .leftSide .list li.active {
   background: transparent url("../image/gift_active.png") 5% center no-repeat;
 }
-/* line 180, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .leftSide .list li.active .userName {
   color: #DAA520;
 }
-/* line 187, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 .leftSide .list .removeUser {
   -moz-border-radius: 30px / 30px;
   -webkit-border-radius: 30px 30px;
@@ -239,7 +261,7 @@ header h1 {
   cursor: pointer;
   vertical-align: bottom;
 }
-/* line 197, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 .leftSide .list .cross {
   display: block;
   width: 6px;
@@ -248,7 +270,7 @@ header h1 {
   margin-left: 12px;
   background-color: #FFFFFF;
 }
-/* line 206, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .leftSide .list .cross.crossRight {
   -webkit-transform: rotate(-45deg);
   /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
@@ -256,7 +278,7 @@ header h1 {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-/* line 210, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .leftSide .list .cross.crossLeft {
   -webkit-transform: rotate(45deg);
   /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
@@ -267,17 +289,17 @@ header h1 {
   top: 0;
 }
 
-/* line 219, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 .centerSide {
   width: 20%;
   font-family: 'Architects Daughter', cursive;
 }
-/* line 224, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .centerSide .pickStatus {
   text-align: center;
   margin-top: 25%;
 }
-/* line 228, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .centerSide .pickStatus button {
   -moz-border-radius: 50% / 50%;
   -webkit-border-radius: 50% 50%;
@@ -289,7 +311,7 @@ header h1 {
   border: 0;
   cursor: pointer;
 }
-/* line 236, ../sass/screen.scss */
+/* line 257, ../sass/screen.scss */
 .centerSide .pickStatus button img {
   position: absolute;
   width: 75px;
@@ -297,10 +319,10 @@ header h1 {
   top: 30px;
   left: 30px;
 }
-/* line 254, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 .centerSide .pickStatus p {
   margin-top: 5%;
-  font-size: 1.2vw;
+  font-size: 18px;
   color: #991903;
 }
 
@@ -326,30 +348,64 @@ header h1 {
     top: 30px;
   }
 }
-/* line 274, ../sass/screen.scss */
+/* line 295, ../sass/screen.scss */
 .rightSide {
-  width: 36%;
+  width: 40%;
   padding: 2%;
   border: 3px solid #DAA520;
   font-family: 'Architects Daughter', cursive;
   background-color: #FFFFFF;
 }
-/* line 281, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 .rightSide .accroche {
-  font-size: 1.5vw;
+  font-size: 18px;
   line-height: 1.5;
   color: #991903;
   text-align: center;
 }
-/* line 288, ../sass/screen.scss */
+/* line 309, ../sass/screen.scss */
 .rightSide .name {
   margin: 13% 0 10%;
-  font-size: 4.5vw;
+  font-size: 26px;
   color: #daa520;
   text-align: center;
 }
 
-/* line 296, ../sass/screen.scss */
+/* line 317, ../sass/screen.scss */
 footer {
   display: none;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 325, ../sass/screen.scss */
+  .leftSide {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* line 330, ../sass/screen.scss */
+  .centerSide {
+    width: 30%;
+  }
+  /* line 333, ../sass/screen.scss */
+  .centerSide .pickStatus button {
+    border-radius: inherit;
+    background-color: inherit;
+    width: 100%;
+    height: inherit;
+  }
+  /* line 338, ../sass/screen.scss */
+  .centerSide .pickStatus button img {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+  }
+
+  /* line 348, ../sass/screen.scss */
+  .rightSide {
+    width: 70%;
+  }
 }
