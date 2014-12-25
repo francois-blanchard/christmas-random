@@ -166,15 +166,18 @@ header {
       top: 13px;
       right: 10px;
       cursor: pointer;
-      width: 40px;
+      height: 23px;
+      z-index: 1;
     }
 
     h3 {
-      padding: 3%;
+      padding: 12px;
       font-size: 22px;
+      height: 46px;
       color: $gold;
       background-color: $red;
       border-top: 3px solid $gold;
+      position: relative;
     }
 
     li {
@@ -308,7 +311,7 @@ header {
 
   .name {
     margin: 13% 0 10%;
-    font-size: 26px;
+    font-size: 40px;
     color: #daa520;
     text-align: center;
   }

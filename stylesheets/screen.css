@@ -212,28 +212,31 @@ header h1 {
   top: 13px;
   right: 10px;
   cursor: pointer;
-  width: 40px;
+  height: 23px;
+  z-index: 1;
 }
-/* line 172, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .leftSide .list h3 {
-  padding: 3%;
+  padding: 12px;
   font-size: 22px;
+  height: 46px;
   color: #DAA520;
   background-color: #991903;
   border-top: 3px solid #DAA520;
+  position: relative;
 }
-/* line 180, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 .leftSide .list li {
   position: relative;
   padding: 2% 2% 2% 60px;
   border-bottom: 3px solid #DAA520;
   background: transparent url("../image/gift_unactive.png") 17px center no-repeat;
 }
-/* line 186, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .leftSide .list li p {
   display: inline-block;
 }
-/* line 190, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 .leftSide .list li .userName {
   margin-left: 5%;
   margin-bottom: 4px;
@@ -241,15 +244,15 @@ header h1 {
   color: #AAAAAA;
   text-transform: capitalize;
 }
-/* line 198, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .leftSide .list li.active {
   background: transparent url("../image/gift_active.png") 5% center no-repeat;
 }
-/* line 201, ../sass/screen.scss */
+/* line 204, ../sass/screen.scss */
 .leftSide .list li.active .userName {
   color: #DAA520;
 }
-/* line 208, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .leftSide .list .removeUser {
   -moz-border-radius: 30px / 30px;
   -webkit-border-radius: 30px 30px;
@@ -261,7 +264,7 @@ header h1 {
   cursor: pointer;
   vertical-align: bottom;
 }
-/* line 218, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 .leftSide .list .cross {
   display: block;
   width: 6px;
@@ -270,7 +273,7 @@ header h1 {
   margin-left: 12px;
   background-color: #FFFFFF;
 }
-/* line 227, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 .leftSide .list .cross.crossRight {
   -webkit-transform: rotate(-45deg);
   /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
@@ -278,7 +281,7 @@ header h1 {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-/* line 231, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 .leftSide .list .cross.crossLeft {
   -webkit-transform: rotate(45deg);
   /* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
@@ -289,17 +292,17 @@ header h1 {
   top: 0;
 }
 
-/* line 240, ../sass/screen.scss */
+/* line 243, ../sass/screen.scss */
 .centerSide {
   width: 20%;
   font-family: 'Architects Daughter', cursive;
 }
-/* line 245, ../sass/screen.scss */
+/* line 248, ../sass/screen.scss */
 .centerSide .pickStatus {
   text-align: center;
   margin-top: 25%;
 }
-/* line 249, ../sass/screen.scss */
+/* line 252, ../sass/screen.scss */
 .centerSide .pickStatus button {
   -moz-border-radius: 50% / 50%;
   -webkit-border-radius: 50% 50%;
@@ -311,7 +314,7 @@ header h1 {
   border: 0;
   cursor: pointer;
 }
-/* line 257, ../sass/screen.scss */
+/* line 260, ../sass/screen.scss */
 .centerSide .pickStatus button img {
   position: absolute;
   width: 75px;
@@ -319,7 +322,7 @@ header h1 {
   top: 30px;
   left: 30px;
 }
-/* line 275, ../sass/screen.scss */
+/* line 278, ../sass/screen.scss */
 .centerSide .pickStatus p {
   margin-top: 5%;
   font-size: 18px;
@@ -348,7 +351,7 @@ header h1 {
     top: 30px;
   }
 }
-/* line 295, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 .rightSide {
   width: 40%;
   padding: 2%;
@@ -356,46 +359,46 @@ header h1 {
   font-family: 'Architects Daughter', cursive;
   background-color: #FFFFFF;
 }
-/* line 302, ../sass/screen.scss */
+/* line 305, ../sass/screen.scss */
 .rightSide .accroche {
   font-size: 18px;
   line-height: 1.5;
   color: #991903;
   text-align: center;
 }
-/* line 309, ../sass/screen.scss */
+/* line 312, ../sass/screen.scss */
 .rightSide .name {
   margin: 13% 0 10%;
-  font-size: 26px;
+  font-size: 40px;
   color: #daa520;
   text-align: center;
 }
 
-/* line 317, ../sass/screen.scss */
+/* line 320, ../sass/screen.scss */
 footer {
   display: none;
 }
 
 @media screen and (max-width: 800px) {
-  /* line 325, ../sass/screen.scss */
+  /* line 328, ../sass/screen.scss */
   .leftSide {
     display: block;
     width: 100%;
     margin-bottom: 20px;
   }
 
-  /* line 330, ../sass/screen.scss */
+  /* line 333, ../sass/screen.scss */
   .centerSide {
     width: 30%;
   }
-  /* line 333, ../sass/screen.scss */
+  /* line 336, ../sass/screen.scss */
   .centerSide .pickStatus button {
     border-radius: inherit;
     background-color: inherit;
     width: 100%;
     height: inherit;
   }
-  /* line 338, ../sass/screen.scss */
+  /* line 341, ../sass/screen.scss */
   .centerSide .pickStatus button img {
     position: relative;
     display: block;
@@ -404,7 +407,7 @@ footer {
     left: 0;
   }
 
-  /* line 348, ../sass/screen.scss */
+  /* line 351, ../sass/screen.scss */
   .rightSide {
     width: 70%;
   }
