@@ -1,0 +1,9 @@
+/* line 1, ../sass/toast.scss */
+.toast-alert {
+  background-color: #bf360c;
+}
+
+/* line 4, ../sass/toast.scss */
+.toast-valid {
+  background-color: #00897b;
+}

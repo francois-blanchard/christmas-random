@@ -1,0 +1,37 @@
+<section class='row pick-user center'>
+  <div ng-switch on="pick_status" class="pickStatus">
+    <div ng-switch-when="pick">
+      <a ng-click="load_picked()" class="waves-effect waves-light btn-large">
+        <i class='material-icons left'>call_missed</i> À qui le tour ?
+      </a>
+    </div>
+    <div ng-switch-default>
+      <a ng-click="restart_game()" class="waves-effect waves-light btn-large">
+        Recommencer le tirage
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="picked-zone" ng-switch on="start_app">
+  <div ng-switch-when="start">
+    <p class="accroche"> Qui va ouvrir ses cadeaux ? </p>
+  </div>
+  <div ng-switch-when="load">
+    <img src="image/gift.gif" alt="">
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+    <p class="accroche"> Chargement en cours ... </p>
+  </div>
+  <div ng-switch-when="set">
+    <p class="accroche">Tu peux ouvrir tes cadeaux : </p>
+    <p class="name">{{user_picked.userName}}</p>
+  </div>
+  <div ng-switch-default>
+    <p class="accroche">Tu peux ouvrir tes cadeaux : </p>
+    <p class="name">{{user_picked.userName}}</p>
+    <p class="accroche">Tout le monde a ouvert ses cadeaux ! <br />
+    Amusez vous bien et surtout nous vous souhaitons un Joyeux Noël ! </p>
+  </div>
+</section>

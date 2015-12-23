@@ -1,0 +1,22 @@
+/* line 1, ../sass/typo.scss */
+.large-font {
+  font-size: 30px;
+}
+/* line 3, ../sass/typo.scss */
+.large-font i {
+  font-size: 35px;
+}
+
+/* line 8, ../sass/typo.scss */
+.picked-zone {
+  text-align: center;
+}
+
+/* line 13, ../sass/typo.scss */
+P.accroche {
+  font-size: 30px;
+}
+/* line 16, ../sass/typo.scss */
+P.name {
+  font-size: 35px;
+}

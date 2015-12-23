@@ -1,0 +1,19 @@
+.large-font{
+  font-size: 30px;
+  i{
+    font-size: 35px;
+  }
+}
+
+.picked-zone{
+  text-align: center;
+}
+
+P{
+  &.accroche{
+    font-size: 30px;
+  }
+  &.name{
+    font-size: 35px;
+  }
+}

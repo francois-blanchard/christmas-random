@@ -1,4 +1,27 @@
-var app = angular.module('christmas',[]);
+var app = angular.module('christmas', ['ngRoute']);
+
+//
+// ROUTES
+//
+
+app.config(function($routeProvider) {
+  $routeProvider
+  .when('/', {
+      templateUrl : 'pages/home.html',
+      controller  : 'UsersController'
+  })
+  .when('/pick', {
+      templateUrl : 'pages/pick.html',
+      controller  : 'UsersController'
+  })
+  .when('/list', {
+      templateUrl : 'pages/list.html',
+      controller  : 'UsersController'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+});
 
 //
 // MODELS
@@ -13,15 +36,10 @@ app.service('User', function(){
   };
 
   $this.users = [
-    new User("Corinne",false),
-    new User("Corinne & Franck",false),
-    new User("Hanna",false),
-    new User("Hanna & Nelson",false),
-    new User("Émilie",false),
-    new User("Émilie & François",false),
-    new User("Franck",false),
-    new User("Nelson",false),
-    new User("François",false)
+    new User("Anne", false),
+    new User("Pierre", false),
+    new User('Benoît', false),
+    new User('François', false)
   ];
 
   $this.all = function(){
@@ -32,6 +50,7 @@ app.service('User', function(){
     picked = typeof picked !== 'undefined' ? picked : false;
     var newUser = new User(userName,picked);
     $this.users.push(newUser);
+    return newUser;
   };
 
   $this.delete = function (user) {
@@ -64,26 +83,33 @@ app.service('User', function(){
 // CONTROLLERS
 //
 
-app.controller('UsersController', function($scope, User, $timeout){
+app.controller('UsersController', function($scope, User, $timeout, $routeParams){
 
   // STATUS : 'init','pick','end'
   $scope.users = User.all();
   $scope.newUser = {};
-  $scope.pick_status = "pick";
-  $scope.start_app = "start";
   $scope.error_username = false;
+  if(User.end_picked()){
+    $scope.start_app = "end";
+    $scope.pick_status = "restart";
+  }else{
+    $scope.start_app = "start";
+    $scope.pick_status = "pick";
+  }
 
   $scope.addUser = function(){
     if ($scope.userForm.$valid) {
 
-      User.create($scope.newUser.userName);
+      var newUser = User.create($scope.newUser.userName);
 
       $scope.newUser = {};
       $scope.pick_status = "pick";
       $scope.error_username = false;
+      Materialize.toast('<i class=\'material-icons\'>recent_actors</i> &nbsp; Vous avez ajouté ' + newUser.userName + ' à la liste des participants', 3000, 'toast-valid')
 
     }else{
       $scope.error_username = true;
+      Materialize.toast('Vous devez renseigner un ou plusieurs prénoms', 3000, 'toast-alert')
     }
     $scope.userForm.$setPristine();
   };
@@ -101,18 +127,25 @@ app.controller('UsersController', function($scope, User, $timeout){
     $scope.user_picked = User.picked_user();
     $scope.start_app = "set";
     if(User.end_picked()){
-      $scope.pick_status = "end";
+      finish_game();
     }
   };
 
   $scope.delete_user = function(user){
     User.delete(user);
+    Materialize.toast('<i class=\'material-icons\'>delete</i> &nbsp; Vous avez supprimé ' + user.userName + ' à la liste des participants', 3000, 'toast-valid')
   };
 
-  $scope.finish_game =function() {
-     $scope.start_app = "end";
-     $scope.pick_status = "restart";
+  finish_game =function() {
+   $scope.start_app = "end";
+   $scope.pick_status = "restart";
   };
+
+  init_game =function() {
+    $scope.start_app = "start";
+    $scope.pick_status = "pick";
+  };
+
   $scope.restart_game =function() {
     // STATUS : 'init','pick','end'
     $scope.newUser = {};
